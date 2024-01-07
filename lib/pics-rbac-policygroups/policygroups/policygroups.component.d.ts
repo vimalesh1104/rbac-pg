@@ -1,0 +1,45 @@
+import { OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AlertService } from '../@core/service/alert.service';
+import { DataStoreService } from '../@core/service/data-store.service';
+import { RBACINFO } from '../@core/urls/rbac-url.config';
+import { RbacService } from '../@core/service/rbac.service';
+import * as i0 from "@angular/core";
+export declare class PolicygroupsComponent implements OnInit {
+    private fb;
+    private alertService;
+    private groupsService;
+    private _storeservice;
+    RBACORG: RBACINFO;
+    policyGroupList: any;
+    filteredPolicyGroupList: any[];
+    individuals: any[];
+    managementGroups: any[];
+    modelPolicyName: string;
+    policyGroupForm: FormGroup;
+    policyGroupId: number;
+    userGroupCount: number;
+    deletedId: string;
+    attachedUsers: any;
+    formSubmit: boolean;
+    groupid: string;
+    orgId: any;
+    httpService: any;
+    constructor(fb: FormBuilder, alertService: AlertService, groupsService: RbacService, _storeservice: DataStoreService);
+    ngOnInit(): void;
+    initializeForm(): void;
+    get formValidate(): {
+        [key: string]: import("@angular/forms").AbstractControl;
+    };
+    getPolicyGroupList(_managementGroupId?: number): void;
+    getManagementGroupTree(organizationid: any): void;
+    searchPolicyGroup(event: Event): void;
+    getPolicyGroupInfo(policyGroup: any): void;
+    addPolicyGroup(): void;
+    delete(event: Event, id: any): void;
+    cancel(): void;
+    deletePolicyGroup(): void;
+    onModelPolicy(value: string): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PolicygroupsComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PolicygroupsComponent, "policygroups", never, {}, {}, never, never>;
+}
